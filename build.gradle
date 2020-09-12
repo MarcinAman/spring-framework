@@ -2,7 +2,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE' apply false
 	id 'io.spring.nohttp' version '0.0.5.RELEASE'
 	id 'org.jetbrains.kotlin.jvm' version '1.5.30' apply false
-	id 'org.jetbrains.dokka' version '0.10.1' apply false
+	id 'org.jetbrains.dokka' version '1.5.0' apply false
 	id 'org.asciidoctor.jvm.convert' version '3.1.0'
 	id 'org.asciidoctor.jvm.pdf' version '3.1.0'
 	id 'de.undercouch.download' version '4.1.1'
@@ -312,6 +312,8 @@ configure([rootProject] + javaProjects) { project ->
 
 	pluginManager.withPlugin("kotlin") {
 		apply plugin: "org.jetbrains.dokka"
+		apply from: "${rootDir}/gradle/docs-dokka.gradle"
+
 		compileKotlin {
 			kotlinOptions {
 				languageVersion = "1.3"
